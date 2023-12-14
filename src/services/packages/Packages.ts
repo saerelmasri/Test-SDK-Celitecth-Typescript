@@ -1,8 +1,13 @@
 import BaseService from '../../BaseService';
 
+import CustomHook from '../../hooks/CustomHook';
+import { Request } from '../../hooks/Hook';
+
 import { ListPackagesResponse } from './models/ListPackagesResponse';
 
 import { serializeQuery } from '../../http/QuerySerializer';
+
+const hook: CustomHook = new CustomHook();
 
 export class PackagesService extends BaseService {
   /**
@@ -36,6 +41,7 @@ export class PackagesService extends BaseService {
       optionalParams;
 
     const queryParams: string[] = [];
+    const headers: { [key: string]: string } = {};
     if (destination) {
       queryParams.push(serializeQuery('form', true, 'destination', destination));
     }
@@ -63,7 +69,20 @@ export class PackagesService extends BaseService {
     const urlEndpoint = '/packages';
     const urlParams = queryParams.length > 0 ? `?${queryParams.join('&')}` : '';
     const finalUrl = encodeURI(`${this.baseUrl + urlEndpoint}${urlParams}`);
-    const response: any = await this.httpClient.get(finalUrl, {}, {}, true);
+    const request: Request = { method: 'GET', url: finalUrl, headers };
+    await hook.beforeRequest(request);
+    const response: any = await this.httpClient.get(
+      request.url,
+      {},
+      {
+        ...request.headers,
+      },
+      true,
+    );
+    await hook.afterResponse(
+      { method: 'GET', url: request.url, headers: request.headers },
+      { data: response.data, headers: response.headers, status: response.status },
+    );
     const responseModel = response.data as ListPackagesResponse;
     return responseModel;
   }

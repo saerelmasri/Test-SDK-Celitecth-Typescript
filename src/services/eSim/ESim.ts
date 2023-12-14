@@ -1,11 +1,16 @@
 import BaseService from '../../BaseService';
 
+import CustomHook from '../../hooks/CustomHook';
+import { Request } from '../../hooks/Hook';
+
 import { GetEsimResponse } from './models/GetEsimResponse';
 import { GetEsimDeviceResponse } from './models/GetEsimDeviceResponse';
 import { GetEsimHistoryResponse } from './models/GetEsimHistoryResponse';
 import { GetEsimMacResponse } from './models/GetEsimMacResponse';
 
 import { serializeQuery, serializePath } from '../../http/QuerySerializer';
+
+const hook: CustomHook = new CustomHook();
 
 export class ESimService extends BaseService {
   /**
@@ -20,12 +25,26 @@ export class ESimService extends BaseService {
       throw new Error('The following parameter is required: iccid, cannot be empty or blank');
     }
     const queryParams: string[] = [];
+    const headers: { [key: string]: string } = {};
     if (iccid) {
       queryParams.push(serializeQuery('form', true, 'iccid', iccid));
     }
     const urlEndpoint = '/esim';
     const finalUrl = encodeURI(`${this.baseUrl + urlEndpoint}?${queryParams.join('&')}`);
-    const response: any = await this.httpClient.get(finalUrl, {}, {}, true);
+    const request: Request = { method: 'GET', url: finalUrl, headers };
+    await hook.beforeRequest(request);
+    const response: any = await this.httpClient.get(
+      request.url,
+      {},
+      {
+        ...request.headers,
+      },
+      true,
+    );
+    await hook.afterResponse(
+      { method: 'GET', url: request.url, headers: request.headers },
+      { data: response.data, headers: response.headers, status: response.status },
+    );
     const responseModel = response.data as GetEsimResponse;
     return responseModel;
   }
@@ -41,10 +60,24 @@ export class ESimService extends BaseService {
     if (iccid === undefined) {
       throw new Error('The following parameter is required: iccid, cannot be empty or blank');
     }
+    const headers: { [key: string]: string } = {};
     let urlEndpoint = '/esim/{iccid}/device';
     urlEndpoint = urlEndpoint.replace('{iccid}', serializePath('simple', false, iccid, undefined));
     const finalUrl = encodeURI(`${this.baseUrl + urlEndpoint}`);
-    const response: any = await this.httpClient.get(finalUrl, {}, {}, true);
+    const request: Request = { method: 'GET', url: finalUrl, headers };
+    await hook.beforeRequest(request);
+    const response: any = await this.httpClient.get(
+      request.url,
+      {},
+      {
+        ...request.headers,
+      },
+      true,
+    );
+    await hook.afterResponse(
+      { method: 'GET', url: request.url, headers: request.headers },
+      { data: response.data, headers: response.headers, status: response.status },
+    );
     const responseModel = response.data as GetEsimDeviceResponse;
     return responseModel;
   }
@@ -60,10 +93,24 @@ export class ESimService extends BaseService {
     if (iccid === undefined) {
       throw new Error('The following parameter is required: iccid, cannot be empty or blank');
     }
+    const headers: { [key: string]: string } = {};
     let urlEndpoint = '/esim/{iccid}/history';
     urlEndpoint = urlEndpoint.replace('{iccid}', serializePath('simple', false, iccid, undefined));
     const finalUrl = encodeURI(`${this.baseUrl + urlEndpoint}`);
-    const response: any = await this.httpClient.get(finalUrl, {}, {}, true);
+    const request: Request = { method: 'GET', url: finalUrl, headers };
+    await hook.beforeRequest(request);
+    const response: any = await this.httpClient.get(
+      request.url,
+      {},
+      {
+        ...request.headers,
+      },
+      true,
+    );
+    await hook.afterResponse(
+      { method: 'GET', url: request.url, headers: request.headers },
+      { data: response.data, headers: response.headers, status: response.status },
+    );
     const responseModel = response.data as GetEsimHistoryResponse;
     return responseModel;
   }
@@ -79,10 +126,24 @@ export class ESimService extends BaseService {
     if (iccid === undefined) {
       throw new Error('The following parameter is required: iccid, cannot be empty or blank');
     }
+    const headers: { [key: string]: string } = {};
     let urlEndpoint = '/esim/{iccid}/mac';
     urlEndpoint = urlEndpoint.replace('{iccid}', serializePath('simple', false, iccid, undefined));
     const finalUrl = encodeURI(`${this.baseUrl + urlEndpoint}`);
-    const response: any = await this.httpClient.get(finalUrl, {}, {}, true);
+    const request: Request = { method: 'GET', url: finalUrl, headers };
+    await hook.beforeRequest(request);
+    const response: any = await this.httpClient.get(
+      request.url,
+      {},
+      {
+        ...request.headers,
+      },
+      true,
+    );
+    await hook.afterResponse(
+      { method: 'GET', url: request.url, headers: request.headers },
+      { data: response.data, headers: response.headers, status: response.status },
+    );
     const responseModel = response.data as GetEsimMacResponse;
     return responseModel;
   }

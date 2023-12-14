@@ -1,9 +1,9 @@
 {
-  "name": "celitech-example",
+  "name": "Test_Celitech_LibLab-example",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "celitech": "file:../"
+    "Test_Celitech_LibLab": "file:../"
   },
   "scripts": {
     "setup": "npm --prefix ../ install && npm --prefix ../ run build && npm install",

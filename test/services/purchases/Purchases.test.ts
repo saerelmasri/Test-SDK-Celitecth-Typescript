@@ -23,18 +23,18 @@ describe('test Purchases', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
         .get(
-          '/purchases?iccid=7032570831&afterDate=placeat&beforeDate=nulla&afterCursor=praesentium&limit=5&after=5&before=6',
+          '/purchases?iccid=5710647663&afterDate=officiis&beforeDate=veritatis&afterCursor=voluptatibus&limit=2&after=5&before=5',
         )
         .reply(200, { data: {} });
       return sdk.purchases
         .listPurchases({
-          iccid: '7032570831',
-          afterDate: 'placeat',
-          beforeDate: 'nulla',
-          afterCursor: 'praesentium',
-          limit: 5,
+          iccid: '5710647663',
+          afterDate: 'officiis',
+          beforeDate: 'veritatis',
+          afterCursor: 'voluptatibus',
+          limit: 2,
           after: 5,
-          before: 6,
+          before: 5,
         })
         .then((r: any) => expect(r.data).toEqual({}));
     });
@@ -70,24 +70,26 @@ describe('test Purchases', () => {
   describe('test getPurchaseConsumption', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/purchases/a/consumption')
+        .get('/purchases/repellat/consumption')
         .reply(200, { data: {} });
-      return sdk.purchases.getPurchaseConsumption('a').then((r: any) => expect(r.data).toEqual({}));
+      return sdk.purchases
+        .getPurchaseConsumption('repellat')
+        .then((r: any) => expect(r.data).toEqual({}));
     });
 
     test('test will throw error if required fields missing', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/purchases/fuga/consumption')
+        .get('/purchases/doloribus/consumption')
         .reply(200, { data: {} });
       return expect(async () => await sdk.purchases.getPurchaseConsumption()).rejects.toThrow();
     });
 
     test('test will throw error on a non-200 response', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/purchases/nostrum/consumption')
+        .get('/purchases/repellendus/consumption')
         .reply(404, { data: {} });
       return expect(
-        async () => await sdk.purchases.getPurchaseConsumption('nostrum'),
+        async () => await sdk.purchases.getPurchaseConsumption('repellendus'),
       ).rejects.toThrow();
     });
   });

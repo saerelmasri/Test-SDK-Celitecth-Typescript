@@ -21,21 +21,21 @@ describe('test Packages', () => {
 
   describe('test listPackages', () => {
     test('test api call', () => {
-      const scope = nock('https://api.celitech.net/v1')
+      const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
         .get(
-          '/packages?destination=esse&startDate=provident&endDate=consequuntur&afterCursor=et&limit=7&startTime=4&endTime=2&duration=3',
+          '/packages?destination=enim&startDate=dignissimos&endDate=rem&afterCursor=porro&limit=2&startTime=7&endTime=9&duration=6',
         )
         .reply(200, { data: {} });
       return sdk.packages
         .listPackages({
-          destination: 'esse',
-          startDate: 'provident',
-          endDate: 'consequuntur',
-          afterCursor: 'et',
-          limit: 7,
-          startTime: 4,
-          endTime: 2,
-          duration: 3,
+          destination: 'enim',
+          startDate: 'dignissimos',
+          endDate: 'rem',
+          afterCursor: 'porro',
+          limit: 2,
+          startTime: 7,
+          endTime: 9,
+          duration: 6,
         })
         .then((r: any) => expect(r.data).toEqual({}));
     });

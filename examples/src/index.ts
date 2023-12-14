@@ -1,4 +1,4 @@
-import { Celitech } from 'celitech';
+import { Celitech } from 'Test_Celitech_LibLab';
 
 const sdk = new Celitech();
 

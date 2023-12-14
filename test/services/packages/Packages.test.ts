@@ -23,19 +23,19 @@ describe('test Packages', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
         .get(
-          '/packages?destination=enim&startDate=dignissimos&endDate=rem&afterCursor=porro&limit=2&startTime=7&endTime=9&duration=6',
+          '/packages?destination=consectetur&startDate=autem&endDate=nemo&afterCursor=saepe&limit=5&startTime=6&endTime=2&duration=4',
         )
         .reply(200, { data: {} });
       return sdk.packages
         .listPackages({
-          destination: 'enim',
-          startDate: 'dignissimos',
-          endDate: 'rem',
-          afterCursor: 'porro',
-          limit: 2,
-          startTime: 7,
-          endTime: 9,
-          duration: 6,
+          destination: 'consectetur',
+          startDate: 'autem',
+          endDate: 'nemo',
+          afterCursor: 'saepe',
+          limit: 5,
+          startTime: 6,
+          endTime: 2,
+          duration: 4,
         })
         .then((r: any) => expect(r.data).toEqual({}));
     });

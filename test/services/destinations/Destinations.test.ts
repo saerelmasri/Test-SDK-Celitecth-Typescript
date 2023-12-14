@@ -21,7 +21,7 @@ describe('test Destinations', () => {
 
   describe('test listDestinations', () => {
     test('test api call', () => {
-      const scope = nock('https://api.celitech.net/v1')
+      const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
         .get('/destinations')
         .reply(200, { data: {} });
       return sdk.destinations.listDestinations().then((r: any) => expect(r.data).toEqual({}));

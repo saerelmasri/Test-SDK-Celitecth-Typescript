@@ -1,7 +1,7 @@
-# Celitech Typescript SDK 1.0.0
+# Celitech Typescript SDK 1.0.3
 The Typescript SDK for Celitech.
-- API version: 1.0.0
-- SDK version: 1.0.0
+- API version: 1.0.3
+- SDK version: 1.0.3
 ## Table of Contents
 - [About the API](#requirements)
 - [Installation](#installation)
@@ -55,8 +55,8 @@ const sdk = new Celitech();
 Here is the list of all available environments:
 ```Typescript
 DEFAULT = 'https://api.celitech.net/v1',
-TOKEN_SERVER = 'https://auth.celitech.net/oauth2/token',
-PRODUCTION = 'https://api.celitech.net/v1'
+TOKEN_SERVER = 'https://test-core-partners.auth.us-east-1.amazoncognito.com/oauth2/token',
+PRODUCTION = 'https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test'
 ```
 How to set the environment:
 ```Typescript

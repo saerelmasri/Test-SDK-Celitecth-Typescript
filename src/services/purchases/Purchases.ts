@@ -1,5 +1,8 @@
 import BaseService from '../../BaseService';
 
+import CustomHook from '../../hooks/CustomHook';
+import { Request } from '../../hooks/Hook';
+
 import { ListPurchasesResponse } from './models/ListPurchasesResponse';
 import { CreatePurchaseResponse } from './models/CreatePurchaseResponse';
 import { CreatePurchaseRequest } from './models/CreatePurchaseRequest';
@@ -10,6 +13,8 @@ import { EditPurchaseRequest } from './models/EditPurchaseRequest';
 import { GetPurchaseConsumptionResponse } from './models/GetPurchaseConsumptionResponse';
 
 import { serializeQuery, serializePath } from '../../http/QuerySerializer';
+
+const hook: CustomHook = new CustomHook();
 
 export class PurchasesService extends BaseService {
   /**
@@ -40,6 +45,7 @@ export class PurchasesService extends BaseService {
     const { iccid, afterDate, beforeDate, afterCursor, limit, after, before } = optionalParams;
 
     const queryParams: string[] = [];
+    const headers: { [key: string]: string } = {};
     if (iccid) {
       queryParams.push(serializeQuery('form', true, 'iccid', iccid));
     }
@@ -64,7 +70,20 @@ export class PurchasesService extends BaseService {
     const urlEndpoint = '/purchases';
     const urlParams = queryParams.length > 0 ? `?${queryParams.join('&')}` : '';
     const finalUrl = encodeURI(`${this.baseUrl + urlEndpoint}${urlParams}`);
-    const response: any = await this.httpClient.get(finalUrl, {}, {}, true);
+    const request: Request = { method: 'GET', url: finalUrl, headers };
+    await hook.beforeRequest(request);
+    const response: any = await this.httpClient.get(
+      request.url,
+      {},
+      {
+        ...request.headers,
+      },
+      true,
+    );
+    await hook.afterResponse(
+      { method: 'GET', url: request.url, headers: request.headers },
+      { data: response.data, headers: response.headers, status: response.status },
+    );
     const responseModel = response.data as ListPurchasesResponse;
     return responseModel;
   }
@@ -79,13 +98,19 @@ export class PurchasesService extends BaseService {
     const headers: { [key: string]: string } = { 'Content-type': 'application/json' };
     const urlEndpoint = '/purchases';
     const finalUrl = encodeURI(`${this.baseUrl + urlEndpoint}`);
+    const request: Request = { method: 'POST', url: finalUrl, input, headers };
+    await hook.beforeRequest(request);
     const response: any = await this.httpClient.post(
-      finalUrl,
-      input,
+      request.url,
+      request.input,
       {
-        ...headers,
+        ...request.headers,
       },
       true,
+    );
+    await hook.afterResponse(
+      { method: 'POST', url: request.url, input: request.input, headers: request.headers },
+      { data: response.data, headers: response.headers, status: response.status },
     );
     const responseModel = response.data as CreatePurchaseResponse;
     return responseModel;
@@ -101,13 +126,19 @@ export class PurchasesService extends BaseService {
     const headers: { [key: string]: string } = { 'Content-type': 'application/json' };
     const urlEndpoint = '/purchases/topup';
     const finalUrl = encodeURI(`${this.baseUrl + urlEndpoint}`);
+    const request: Request = { method: 'POST', url: finalUrl, input, headers };
+    await hook.beforeRequest(request);
     const response: any = await this.httpClient.post(
-      finalUrl,
-      input,
+      request.url,
+      request.input,
       {
-        ...headers,
+        ...request.headers,
       },
       true,
+    );
+    await hook.afterResponse(
+      { method: 'POST', url: request.url, input: request.input, headers: request.headers },
+      { data: response.data, headers: response.headers, status: response.status },
     );
     const responseModel = response.data as TopUpEsimResponse;
     return responseModel;
@@ -123,13 +154,19 @@ export class PurchasesService extends BaseService {
     const headers: { [key: string]: string } = { 'Content-type': 'application/json' };
     const urlEndpoint = '/purchases/edit';
     const finalUrl = encodeURI(`${this.baseUrl + urlEndpoint}`);
+    const request: Request = { method: 'POST', url: finalUrl, input, headers };
+    await hook.beforeRequest(request);
     const response: any = await this.httpClient.post(
-      finalUrl,
-      input,
+      request.url,
+      request.input,
       {
-        ...headers,
+        ...request.headers,
       },
       true,
+    );
+    await hook.afterResponse(
+      { method: 'POST', url: request.url, input: request.input, headers: request.headers },
+      { data: response.data, headers: response.headers, status: response.status },
     );
     const responseModel = response.data as EditPurchaseResponse;
     return responseModel;
@@ -146,13 +183,27 @@ export class PurchasesService extends BaseService {
     if (purchaseId === undefined) {
       throw new Error('The following parameter is required: purchaseId, cannot be empty or blank');
     }
+    const headers: { [key: string]: string } = {};
     let urlEndpoint = '/purchases/{purchaseId}/consumption';
     urlEndpoint = urlEndpoint.replace(
       '{purchaseId}',
       serializePath('simple', false, purchaseId, undefined),
     );
     const finalUrl = encodeURI(`${this.baseUrl + urlEndpoint}`);
-    const response: any = await this.httpClient.get(finalUrl, {}, {}, true);
+    const request: Request = { method: 'GET', url: finalUrl, headers };
+    await hook.beforeRequest(request);
+    const response: any = await this.httpClient.get(
+      request.url,
+      {},
+      {
+        ...request.headers,
+      },
+      true,
+    );
+    await hook.afterResponse(
+      { method: 'GET', url: request.url, headers: request.headers },
+      { data: response.data, headers: response.headers, status: response.status },
+    );
     const responseModel = response.data as GetPurchaseConsumptionResponse;
     return responseModel;
   }

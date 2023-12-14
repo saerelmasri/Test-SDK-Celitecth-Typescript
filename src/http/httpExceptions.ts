@@ -41,6 +41,10 @@ import {
   NetworkAuthenticationRequired,
 } from './errors';
 
+import CustomHook from '../hooks/CustomHook';
+
+const hook: CustomHook = new CustomHook();
+
 interface HttpResponseWithError {
   status: number;
   headers: any;
@@ -127,6 +131,8 @@ export default function throwHttpError(response: HttpResponseWithError): never {
         error.title = 'unknown error';
       }
   }
+
+  hook.onError(error);
 
   throw error;
 }

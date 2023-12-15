@@ -23,18 +23,18 @@ describe('test Purchases', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
         .get(
-          '/purchases?iccid=7604535956&afterDate=consequatur&beforeDate=aliquam&afterCursor=minus&limit=7&after=9&before=8',
+          '/purchases?iccid=6274358956&afterDate=necessitatibus&beforeDate=voluptates&afterCursor=vero&limit=2&after=5&before=5',
         )
         .reply(200, { data: {} });
       return sdk.purchases
         .listPurchases({
-          iccid: '7604535956',
-          afterDate: 'consequatur',
-          beforeDate: 'aliquam',
-          afterCursor: 'minus',
-          limit: 7,
-          after: 9,
-          before: 8,
+          iccid: '6274358956',
+          afterDate: 'necessitatibus',
+          beforeDate: 'voluptates',
+          afterCursor: 'vero',
+          limit: 2,
+          after: 5,
+          before: 5,
         })
         .then((r: any) => expect(r.data).toEqual({}));
     });
@@ -70,26 +70,26 @@ describe('test Purchases', () => {
   describe('test getPurchaseConsumption', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/purchases/officiis/consumption')
+        .get('/purchases/eligendi/consumption')
         .reply(200, { data: {} });
       return sdk.purchases
-        .getPurchaseConsumption('officiis')
+        .getPurchaseConsumption('eligendi')
         .then((r: any) => expect(r.data).toEqual({}));
     });
 
     test('test will throw error if required fields missing', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/purchases/molestias/consumption')
+        .get('/purchases/fuga/consumption')
         .reply(200, { data: {} });
       return expect(async () => await sdk.purchases.getPurchaseConsumption()).rejects.toThrow();
     });
 
     test('test will throw error on a non-200 response', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/purchases/aliquam/consumption')
+        .get('/purchases/veritatis/consumption')
         .reply(404, { data: {} });
       return expect(
-        async () => await sdk.purchases.getPurchaseConsumption('aliquam'),
+        async () => await sdk.purchases.getPurchaseConsumption('veritatis'),
       ).rejects.toThrow();
     });
   });

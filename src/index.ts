@@ -2,9 +2,6 @@ import { DestinationsService } from './services/destinations/Destinations';
 import { ESimService } from './services/eSim/ESim';
 import { PackagesService } from './services/packages/Packages';
 import { PurchasesService } from './services/purchases/Purchases';
-import { Environment } from './http/Environment';
-
-export * from './http/Environment';
 
 export * from './models';
 
@@ -12,10 +9,6 @@ export * as DestinationsModels from './services/destinations';
 export * as ESimModels from './services/eSim';
 export * as PackagesModels from './services/packages';
 export * as PurchasesModels from './services/purchases';
-
-type Config = {
-  environment?: Environment;
-};
 
 export * from './http/errors';
 
@@ -28,24 +21,15 @@ export class Celitech {
   public packages: PackagesService;
   public purchases: PurchasesService;
 
-  constructor({ environment = Environment.DEFAULT }: Config) {
+  constructor() {
     this.destinations = new DestinationsService();
     this.eSim = new ESimService();
     this.packages = new PackagesService();
     this.purchases = new PurchasesService();
-    this.setBaseUrl(environment);
   }
 
   /**
-   * Sets the environment with which the SDK will interact.
-   * @param {Environment} environment
-   */
-  setEnvironment(environment: Environment): void {
-    this.setBaseUrl(environment);
-  }
-
-  /**
-   * Sets the baseUrl that the SDK will use for its requests. See {@link setEnvironment} to use pre-defined environments.
+   * Sets the baseUrl that the SDK will use for its requests.
    * @param {string} url
    */
   setBaseUrl(url: string): void {

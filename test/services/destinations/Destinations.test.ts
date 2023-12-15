@@ -14,7 +14,7 @@ describe('test Destinations', () => {
   let sdk: any;
 
   beforeEach(() => {
-    sdk = new Celitech({});
+    sdk = new Celitech();
 
     nock.cleanAll();
   });

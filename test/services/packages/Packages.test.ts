@@ -14,7 +14,7 @@ describe('test Packages', () => {
   let sdk: any;
 
   beforeEach(() => {
-    sdk = new Celitech({});
+    sdk = new Celitech();
 
     nock.cleanAll();
   });
@@ -23,19 +23,19 @@ describe('test Packages', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
         .get(
-          '/packages?destination=hic&startDate=occaecati&endDate=perspiciatis&afterCursor=qui&limit=5&startTime=3&endTime=3&duration=9',
+          '/packages?destination=nemo&startDate=quo&endDate=animi&afterCursor=odio&limit=7&startTime=4&endTime=9&duration=1',
         )
         .reply(200, { data: {} });
       return sdk.packages
         .listPackages({
-          destination: 'hic',
-          startDate: 'occaecati',
-          endDate: 'perspiciatis',
-          afterCursor: 'qui',
-          limit: 5,
-          startTime: 3,
-          endTime: 3,
-          duration: 9,
+          destination: 'nemo',
+          startDate: 'quo',
+          endDate: 'animi',
+          afterCursor: 'odio',
+          limit: 7,
+          startTime: 4,
+          endTime: 9,
+          duration: 1,
         })
         .then((r: any) => expect(r.data).toEqual({}));
     });

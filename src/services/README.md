@@ -157,6 +157,7 @@ const sdk = new Celitech();
     networkBrand: 'CELITECH',
     startDate: '2023-11-01',
     startTime: 1672051891,
+    test: 'test',
   };
   const result = await sdk.purchases.createPurchase(input);
   console.log(result);

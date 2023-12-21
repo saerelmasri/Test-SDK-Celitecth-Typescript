@@ -1,5 +1,9 @@
 export interface CreatePurchaseRequest {
   /**
+   * TEST
+   */
+  test?: string;
+  /**
    * ISO representation of the package's destination
    */
   destination: string;

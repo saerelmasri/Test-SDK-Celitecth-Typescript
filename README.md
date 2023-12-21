@@ -1,7 +1,7 @@
-# Celitech Typescript SDK 1.1.1
+# Celitech Typescript SDK 1.1.2
 The Typescript SDK for Celitech.
-- API version: 1.1.1
-- SDK version: 1.1.1
+- API version: 1.1.2
+- SDK version: 1.1.2
 ## Table of Contents
 - [About the API](#requirements)
 - [Installation](#installation)
@@ -209,6 +209,7 @@ const sdk = new Celitech();
     networkBrand: 'CELITECH',
     startDate: '2023-11-01',
     startTime: 1672051891,
+    test: 'test',
   };
   const result = await sdk.purchases.createPurchase(input);
   console.log(result);

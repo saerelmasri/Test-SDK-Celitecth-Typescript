@@ -22,92 +22,92 @@ describe('test ESim', () => {
   describe('test getEsim', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/esim?iccid=2080019791')
+        .get('/esim?iccid=7574623543')
         .reply(200, { data: {} });
-      return sdk.eSim.getEsim('2080019791').then((r: any) => expect(r.data).toEqual({}));
+      return sdk.eSim.getEsim('7574623543').then((r: any) => expect(r.data).toEqual({}));
     });
 
     test('test will throw error if required fields missing', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/esim?iccid=7199950645')
+        .get('/esim?iccid=5570724538')
         .reply(200, { data: {} });
       return expect(async () => await sdk.eSim.getEsim()).rejects.toThrow();
     });
 
     test('test will throw error on a non-200 response', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/esim?iccid=6605672182')
+        .get('/esim?iccid=3342579229')
         .reply(404, { data: {} });
-      return expect(async () => await sdk.eSim.getEsim('6605672182')).rejects.toThrow();
+      return expect(async () => await sdk.eSim.getEsim('3342579229')).rejects.toThrow();
     });
   });
 
   describe('test getEsimDevice', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/esim/3604924564/device')
+        .get('/esim/9933992146/device')
         .reply(200, { data: {} });
-      return sdk.eSim.getEsimDevice('3604924564').then((r: any) => expect(r.data).toEqual({}));
+      return sdk.eSim.getEsimDevice('9933992146').then((r: any) => expect(r.data).toEqual({}));
     });
 
     test('test will throw error if required fields missing', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/esim/2791571039/device')
+        .get('/esim/1428790120/device')
         .reply(200, { data: {} });
       return expect(async () => await sdk.eSim.getEsimDevice()).rejects.toThrow();
     });
 
     test('test will throw error on a non-200 response', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/esim/7643904792/device')
+        .get('/esim/8810688637/device')
         .reply(404, { data: {} });
-      return expect(async () => await sdk.eSim.getEsimDevice('7643904792')).rejects.toThrow();
+      return expect(async () => await sdk.eSim.getEsimDevice('8810688637')).rejects.toThrow();
     });
   });
 
   describe('test getEsimHistory', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/esim/9643900769/history')
+        .get('/esim/9292604902/history')
         .reply(200, { data: {} });
-      return sdk.eSim.getEsimHistory('9643900769').then((r: any) => expect(r.data).toEqual({}));
+      return sdk.eSim.getEsimHistory('9292604902').then((r: any) => expect(r.data).toEqual({}));
     });
 
     test('test will throw error if required fields missing', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/esim/3581074199/history')
+        .get('/esim/8276579228/history')
         .reply(200, { data: {} });
       return expect(async () => await sdk.eSim.getEsimHistory()).rejects.toThrow();
     });
 
     test('test will throw error on a non-200 response', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/esim/9743067317/history')
+        .get('/esim/6572495120/history')
         .reply(404, { data: {} });
-      return expect(async () => await sdk.eSim.getEsimHistory('9743067317')).rejects.toThrow();
+      return expect(async () => await sdk.eSim.getEsimHistory('6572495120')).rejects.toThrow();
     });
   });
 
   describe('test getEsimMac', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/esim/1377573969/mac')
+        .get('/esim/7893241323/mac')
         .reply(200, { data: {} });
-      return sdk.eSim.getEsimMac('1377573969').then((r: any) => expect(r.data).toEqual({}));
+      return sdk.eSim.getEsimMac('7893241323').then((r: any) => expect(r.data).toEqual({}));
     });
 
     test('test will throw error if required fields missing', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/esim/9757680861/mac')
+        .get('/esim/7769786988/mac')
         .reply(200, { data: {} });
       return expect(async () => await sdk.eSim.getEsimMac()).rejects.toThrow();
     });
 
     test('test will throw error on a non-200 response', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/esim/5335778394/mac')
+        .get('/esim/8860961636/mac')
         .reply(404, { data: {} });
-      return expect(async () => await sdk.eSim.getEsimMac('5335778394')).rejects.toThrow();
+      return expect(async () => await sdk.eSim.getEsimMac('8860961636')).rejects.toThrow();
     });
   });
 });

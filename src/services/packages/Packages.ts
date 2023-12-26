@@ -16,8 +16,8 @@ export class PackagesService extends BaseService {
 
    * @param optionalParams - Optional parameters
    * @param optionalParams.destination - Needed input variable
-   * @param optionalParams.startDate - Start date of the package's validity in the format 'yyyy-MM-dd'. This date can be set to the current day or any day within the next 12 months.
-   * @param optionalParams.endDate - End date of the package's validity in the format 'yyyy-MM-dd'. End date can be maximum 60 days after Start date.
+   * @param optionalParams.startDate - Needed input variable
+   * @param optionalParams.endDate - Needed input variable
    * @param optionalParams.afterCursor - Needed input variable
    * @param optionalParams.limit - Needed input variable
    * @param optionalParams.startTime - Needed input variable

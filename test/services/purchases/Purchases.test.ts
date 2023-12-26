@@ -23,18 +23,18 @@ describe('test Purchases', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
         .get(
-          '/purchases?iccid=5772066091&afterDate=quasi&beforeDate=illum&afterCursor=soluta&limit=6&after=7&before=1',
+          '/purchases?iccid=7801172783&afterDate=consequuntur&beforeDate=ratione&afterCursor=libero&limit=6&after=4&before=2',
         )
         .reply(200, { data: {} });
       return sdk.purchases
         .listPurchases({
-          iccid: '5772066091',
-          afterDate: 'quasi',
-          beforeDate: 'illum',
-          afterCursor: 'soluta',
+          iccid: '7801172783',
+          afterDate: 'consequuntur',
+          beforeDate: 'ratione',
+          afterCursor: 'libero',
           limit: 6,
-          after: 7,
-          before: 1,
+          after: 4,
+          before: 2,
         })
         .then((r: any) => expect(r.data).toEqual({}));
     });
@@ -70,26 +70,26 @@ describe('test Purchases', () => {
   describe('test getPurchaseConsumption', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/purchases/autem/consumption')
+        .get('/purchases/fuga/consumption')
         .reply(200, { data: {} });
       return sdk.purchases
-        .getPurchaseConsumption('autem')
+        .getPurchaseConsumption('fuga')
         .then((r: any) => expect(r.data).toEqual({}));
     });
 
     test('test will throw error if required fields missing', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/purchases/praesentium/consumption')
+        .get('/purchases/doloribus/consumption')
         .reply(200, { data: {} });
       return expect(async () => await sdk.purchases.getPurchaseConsumption()).rejects.toThrow();
     });
 
     test('test will throw error on a non-200 response', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/purchases/similique/consumption')
+        .get('/purchases/veniam/consumption')
         .reply(404, { data: {} });
       return expect(
-        async () => await sdk.purchases.getPurchaseConsumption('similique'),
+        async () => await sdk.purchases.getPurchaseConsumption('veniam'),
       ).rejects.toThrow();
     });
   });

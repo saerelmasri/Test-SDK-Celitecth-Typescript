@@ -89,8 +89,8 @@ Optional parameters are passed as part of the last parameter to the method. Ex. 
 | Name    | Type| Description |
 | :-------- | :----------| :----------|
 | destination | string |  |
-| startDate | string | Start date of the package's validity in the format 'yyyy-MM-dd'. This date can be set to the current day or any day within the next 12 months. |
-| endDate | string | End date of the package's validity in the format 'yyyy-MM-dd'. End date can be maximum 60 days after Start date. |
+| startDate | string |  |
+| endDate | string |  |
 | afterCursor | string |  |
 | limit | number |  |
 | startTime | number |  |
@@ -116,9 +116,9 @@ const sdk = new Celitech();
     afterCursor:
       'Y3JlYXRlZEF0OjE1OTk0OTMwOTgsZGVzdGluYXRpb246QVVTLG1pbkRheXM6MCxkYXRhTGltaXRJbkJ5dGVzOjUzNjg3MDkxMjA',
     limit: 20,
-    startTime: 1672052449,
-    endTime: 1672396681,
-    duration: 344232,
+    startTime: -45868711,
+    endTime: 99255672,
+    duration: -73007927.01672277,
   });
   console.log(result);
 })();
@@ -153,11 +153,10 @@ const sdk = new Celitech();
     destination: 'FRA',
     email: 'example@domain.com',
     endDate: '2023-11-20',
-    endTime: 1672396681,
+    endTime: 22709423.335083783,
     networkBrand: 'CELITECH',
     startDate: '2023-11-01',
-    startTime: 1672051891,
-    test: 'test',
+    startTime: -93256292.40205528,
   };
   const result = await sdk.purchases.createPurchase(input);
   console.log(result);
@@ -182,8 +181,8 @@ Optional parameters are passed as part of the last parameter to the method. Ex. 
 | beforeDate | string | End date of the interval for filtering purchases in the format 'yyyy-MM-dd' |
 | afterCursor | string |  |
 | limit | number |  |
-| after | number |  |
-| before | number |  |
+| after | number | Epoch value representing the start of the time interval for filtering purchases |
+| before | number | Epoch value representing the end of the time interval for filtering purchases |
 
 
 **Return Type**
@@ -204,8 +203,8 @@ const sdk = new Celitech();
     afterCursor:
       'Y3JlYXRlZEF0OjE1OTk0OTMwOTgsZGVzdGluYXRpb246QVVTLG1pbkRheXM6MCxkYXRhTGltaXRJbkJ5dGVzOjUzNjg3MDkxMjA',
     limit: 20,
-    after: 1672052365,
-    before: 1672396681,
+    after: -9746129.99458544,
+    before: -93340054.75507717,
   });
   console.log(result);
 })();
@@ -238,10 +237,10 @@ const sdk = new Celitech();
     dataLimitInGB: 1,
     email: 'example@domain.com',
     endDate: '2023-11-20',
-    endTime: 1672396681,
+    endTime: -64982108.636513345,
     iccid: '1111222233334444555',
     startDate: '2023-11-01',
-    startTime: 1672051891,
+    startTime: -33098226.213219695,
   };
   const result = await sdk.purchases.topUpEsim(input);
   console.log(result);
@@ -273,10 +272,10 @@ const sdk = new Celitech();
 (async () => {
   const input = {
     endDate: '2023-11-20',
-    endTime: 1672396681,
+    endTime: -76504707.2612148,
     purchaseId: 'ae471106-c8b4-42cf-b83a-b061291f2922',
     startDate: '2023-11-01',
-    startTime: 1672051891,
+    startTime: -99231245.46910316,
   };
   const result = await sdk.purchases.editPurchase(input);
   console.log(result);

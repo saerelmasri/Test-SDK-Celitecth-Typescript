@@ -27,8 +27,8 @@ export class PurchasesService extends BaseService {
    * @param optionalParams.beforeDate - End date of the interval for filtering purchases in the format 'yyyy-MM-dd'
    * @param optionalParams.afterCursor - Needed input variable
    * @param optionalParams.limit - Needed input variable
-   * @param optionalParams.after - Needed input variable
-   * @param optionalParams.before - Needed input variable
+   * @param optionalParams.after - Epoch value representing the start of the time interval for filtering purchases
+   * @param optionalParams.before - Epoch value representing the end of the time interval for filtering purchases
    * @returns {Promise<ListPurchasesResponse>} - The promise with the result
    */
   async listPurchases(

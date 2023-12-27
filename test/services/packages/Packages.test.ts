@@ -23,19 +23,19 @@ describe('test Packages', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
         .get(
-          '/packages?destination=deleniti&startDate=beatae&endDate=dolorum&afterCursor=magnam&limit=7&startTime=1&endTime=3&duration=8',
+          '/packages?destination=aut&startDate=facere&endDate=harum&afterCursor=tempora&limit=7&startTime=1&endTime=4&duration=6',
         )
         .reply(200, { data: {} });
       return sdk.packages
         .listPackages({
-          destination: 'deleniti',
-          startDate: 'beatae',
-          endDate: 'dolorum',
-          afterCursor: 'magnam',
+          destination: 'aut',
+          startDate: 'facere',
+          endDate: 'harum',
+          afterCursor: 'tempora',
           limit: 7,
           startTime: 1,
-          endTime: 3,
-          duration: 8,
+          endTime: 4,
+          duration: 6,
         })
         .then((r: any) => expect(r.data).toEqual({}));
     });

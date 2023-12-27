@@ -1,6 +1,6 @@
-import { Celitech } from 'test-celitech-liblab';
+import { Testcelitechliblab } from 'test-celitech-liblab';
 
-const sdk = new Celitech();
+const sdk = new Testcelitechliblab();
 
 (async () => {
   const result = await sdk.destinations.listDestinations();

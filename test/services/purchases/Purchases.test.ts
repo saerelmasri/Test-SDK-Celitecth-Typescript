@@ -23,17 +23,17 @@ describe('test Purchases', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
         .get(
-          '/purchases?iccid=1492563156&afterDate=necessitatibus&beforeDate=tempora&afterCursor=doloremque&limit=6&after=9&before=3',
+          '/purchases?iccid=8783530787&afterDate=alias&beforeDate=beatae&afterCursor=eum&limit=3&after=3&before=3',
         )
         .reply(200, { data: {} });
       return sdk.purchases
         .listPurchases({
-          iccid: '1492563156',
-          afterDate: 'necessitatibus',
-          beforeDate: 'tempora',
-          afterCursor: 'doloremque',
-          limit: 6,
-          after: 9,
+          iccid: '8783530787',
+          afterDate: 'alias',
+          beforeDate: 'beatae',
+          afterCursor: 'eum',
+          limit: 3,
+          after: 3,
           before: 3,
         })
         .then((r: any) => expect(r.data).toEqual({}));
@@ -70,26 +70,26 @@ describe('test Purchases', () => {
   describe('test getPurchaseConsumption', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/purchases/in/consumption')
+        .get('/purchases/sed/consumption')
         .reply(200, { data: {} });
       return sdk.purchases
-        .getPurchaseConsumption('in')
+        .getPurchaseConsumption('sed')
         .then((r: any) => expect(r.data).toEqual({}));
     });
 
     test('test will throw error if required fields missing', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/purchases/pariatur/consumption')
+        .get('/purchases/enim/consumption')
         .reply(200, { data: {} });
       return expect(async () => await sdk.purchases.getPurchaseConsumption()).rejects.toThrow();
     });
 
     test('test will throw error on a non-200 response', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
-        .get('/purchases/eligendi/consumption')
+        .get('/purchases/cum/consumption')
         .reply(404, { data: {} });
       return expect(
-        async () => await sdk.purchases.getPurchaseConsumption('eligendi'),
+        async () => await sdk.purchases.getPurchaseConsumption('cum'),
       ).rejects.toThrow();
     });
   });

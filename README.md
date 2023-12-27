@@ -1,7 +1,7 @@
-# Celitech Typescript SDK 1.1.4
+# Celitech Typescript SDK 1.1.5
 The Typescript SDK for Celitech.
-- API version: 1.1.4
-- SDK version: 1.1.4
+- API version: 1.1.5
+- SDK version: 1.1.5
 ## Table of Contents
 - [About the API](#requirements)
 - [Installation](#installation)
@@ -168,9 +168,9 @@ const sdk = new Celitech();
     afterCursor:
       'Y3JlYXRlZEF0OjE1OTk0OTMwOTgsZGVzdGluYXRpb246QVVTLG1pbkRheXM6MCxkYXRhTGltaXRJbkJ5dGVzOjUzNjg3MDkxMjA',
     limit: 20,
-    startTime: -76961546,
-    endTime: -29752890,
-    duration: -4346436.358061105,
+    startTime: 83602190,
+    endTime: 77026746,
+    duration: -2537716.426501915,
   });
   console.log(result);
 })();
@@ -205,10 +205,10 @@ const sdk = new Celitech();
     destination: 'FRA',
     email: 'example@domain.com',
     endDate: '2023-11-20',
-    endTime: 65060508.12098119,
+    endTime: 74033706.81067756,
     networkBrand: 'CELITECH',
     startDate: '2023-11-01',
-    startTime: 44292177.14455739,
+    startTime: 96928283.28731489,
   };
   const result = await sdk.purchases.createPurchase(input);
   console.log(result);
@@ -255,8 +255,8 @@ const sdk = new Celitech();
     afterCursor:
       'Y3JlYXRlZEF0OjE1OTk0OTMwOTgsZGVzdGluYXRpb246QVVTLG1pbkRheXM6MCxkYXRhTGltaXRJbkJ5dGVzOjUzNjg3MDkxMjA',
     limit: 20,
-    after: 74603271.20233908,
-    before: -18486218.409088016,
+    after: 63893039.48393628,
+    before: 34173012.40462902,
   });
   console.log(result);
 })();
@@ -289,10 +289,10 @@ const sdk = new Celitech();
     dataLimitInGB: 1,
     email: 'example@domain.com',
     endDate: '2023-11-20',
-    endTime: 12735879.536412537,
+    endTime: 11752626.306001663,
     iccid: '1111222233334444555',
     startDate: '2023-11-01',
-    startTime: 53205550.517988205,
+    startTime: -42810436.71292881,
   };
   const result = await sdk.purchases.topUpEsim(input);
   console.log(result);
@@ -324,10 +324,10 @@ const sdk = new Celitech();
 (async () => {
   const input = {
     endDate: '2023-11-20',
-    endTime: 79432869.33388838,
+    endTime: -89615142.0843645,
     purchaseId: 'ae471106-c8b4-42cf-b83a-b061291f2922',
     startDate: '2023-11-01',
-    startTime: 56006785.134935945,
+    startTime: -53026592.68954444,
   };
   const result = await sdk.purchases.editPurchase(input);
   console.log(result);

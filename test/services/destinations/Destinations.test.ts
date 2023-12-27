@@ -1,6 +1,6 @@
 import nock from 'nock';
 
-import { Celitech } from '../../../src';
+import { Testcelitechliblab } from '../../../src';
 
 import { DestinationsService } from '../../../src/services/destinations/Destinations';
 
@@ -14,7 +14,7 @@ describe('test Destinations', () => {
   let sdk: any;
 
   beforeEach(() => {
-    sdk = new Celitech();
+    sdk = new Testcelitechliblab();
 
     nock.cleanAll();
   });

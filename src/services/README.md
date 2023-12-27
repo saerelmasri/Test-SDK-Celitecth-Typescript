@@ -1,4 +1,4 @@
-# Celitech Services
+# Testcelitechliblab Services
 A list of all services and services methods.
 - Services
 
@@ -64,9 +64,9 @@ ListDestinationsResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Celitech } from 'test-celitech-liblab';
+import { Testcelitechliblab } from 'test-celitech-liblab';
 
-const sdk = new Celitech();
+const sdk = new Testcelitechliblab();
 
 (async () => {
   const result = await sdk.destinations.listDestinations();
@@ -104,9 +104,9 @@ ListPackagesResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Celitech } from 'test-celitech-liblab';
+import { Testcelitechliblab } from 'test-celitech-liblab';
 
-const sdk = new Celitech();
+const sdk = new Testcelitechliblab();
 
 (async () => {
   const result = await sdk.packages.listPackages({
@@ -116,9 +116,9 @@ const sdk = new Celitech();
     afterCursor:
       'Y3JlYXRlZEF0OjE1OTk0OTMwOTgsZGVzdGluYXRpb246QVVTLG1pbkRheXM6MCxkYXRhTGltaXRJbkJ5dGVzOjUzNjg3MDkxMjA',
     limit: 20,
-    startTime: 83602190,
-    endTime: 77026746,
-    duration: -2537716.426501915,
+    startTime: 23766603,
+    endTime: 20178268,
+    duration: 46115940.503867656,
   });
   console.log(result);
 })();
@@ -143,9 +143,9 @@ CreatePurchaseResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Celitech } from 'test-celitech-liblab';
+import { Testcelitechliblab } from 'test-celitech-liblab';
 
-const sdk = new Celitech();
+const sdk = new Testcelitechliblab();
 
 (async () => {
   const input = {
@@ -153,10 +153,10 @@ const sdk = new Celitech();
     destination: 'FRA',
     email: 'example@domain.com',
     endDate: '2023-11-20',
-    endTime: 74033706.81067756,
+    endTime: 95417178.6750173,
     networkBrand: 'CELITECH',
     startDate: '2023-11-01',
-    startTime: 96928283.28731489,
+    startTime: -29172032.58303784,
   };
   const result = await sdk.purchases.createPurchase(input);
   console.log(result);
@@ -191,9 +191,9 @@ ListPurchasesResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Celitech } from 'test-celitech-liblab';
+import { Testcelitechliblab } from 'test-celitech-liblab';
 
-const sdk = new Celitech();
+const sdk = new Testcelitechliblab();
 
 (async () => {
   const result = await sdk.purchases.listPurchases({
@@ -203,8 +203,8 @@ const sdk = new Celitech();
     afterCursor:
       'Y3JlYXRlZEF0OjE1OTk0OTMwOTgsZGVzdGluYXRpb246QVVTLG1pbkRheXM6MCxkYXRhTGltaXRJbkJ5dGVzOjUzNjg3MDkxMjA',
     limit: 20,
-    after: 63893039.48393628,
-    before: 34173012.40462902,
+    after: 16128247.088523388,
+    before: 98473973.72660431,
   });
   console.log(result);
 })();
@@ -228,19 +228,19 @@ TopUpEsimResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Celitech } from 'test-celitech-liblab';
+import { Testcelitechliblab } from 'test-celitech-liblab';
 
-const sdk = new Celitech();
+const sdk = new Testcelitechliblab();
 
 (async () => {
   const input = {
     dataLimitInGB: 1,
     email: 'example@domain.com',
     endDate: '2023-11-20',
-    endTime: 11752626.306001663,
+    endTime: 42636292.156116754,
     iccid: '1111222233334444555',
     startDate: '2023-11-01',
-    startTime: -42810436.71292881,
+    startTime: -71110404.81625341,
   };
   const result = await sdk.purchases.topUpEsim(input);
   console.log(result);
@@ -265,17 +265,17 @@ EditPurchaseResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Celitech } from 'test-celitech-liblab';
+import { Testcelitechliblab } from 'test-celitech-liblab';
 
-const sdk = new Celitech();
+const sdk = new Testcelitechliblab();
 
 (async () => {
   const input = {
     endDate: '2023-11-20',
-    endTime: -89615142.0843645,
+    endTime: 74543461.48148713,
     purchaseId: 'ae471106-c8b4-42cf-b83a-b061291f2922',
     startDate: '2023-11-01',
-    startTime: -53026592.68954444,
+    startTime: 72933404.1309897,
   };
   const result = await sdk.purchases.editPurchase(input);
   console.log(result);
@@ -302,9 +302,9 @@ GetPurchaseConsumptionResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Celitech } from 'test-celitech-liblab';
+import { Testcelitechliblab } from 'test-celitech-liblab';
 
-const sdk = new Celitech();
+const sdk = new Testcelitechliblab();
 
 (async () => {
   const result = await sdk.purchases.getPurchaseConsumption('4973fa15-6979-4daa-9cf3-672620df819c');
@@ -333,9 +333,9 @@ GetEsimResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Celitech } from 'test-celitech-liblab';
+import { Testcelitechliblab } from 'test-celitech-liblab';
 
-const sdk = new Celitech();
+const sdk = new Testcelitechliblab();
 
 (async () => {
   const result = await sdk.eSim.getEsim('1111222233334444555');
@@ -363,9 +363,9 @@ GetEsimDeviceResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Celitech } from 'test-celitech-liblab';
+import { Testcelitechliblab } from 'test-celitech-liblab';
 
-const sdk = new Celitech();
+const sdk = new Testcelitechliblab();
 
 (async () => {
   const result = await sdk.eSim.getEsimDevice('1111222233334444555');
@@ -393,9 +393,9 @@ GetEsimHistoryResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Celitech } from 'test-celitech-liblab';
+import { Testcelitechliblab } from 'test-celitech-liblab';
 
-const sdk = new Celitech();
+const sdk = new Testcelitechliblab();
 
 (async () => {
   const result = await sdk.eSim.getEsimHistory('1111222233334444555');
@@ -423,9 +423,9 @@ GetEsimMacResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Celitech } from 'test-celitech-liblab';
+import { Testcelitechliblab } from 'test-celitech-liblab';
 
-const sdk = new Celitech();
+const sdk = new Testcelitechliblab();
 
 (async () => {
   const result = await sdk.eSim.getEsimMac('1111222233334444555');

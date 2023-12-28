@@ -1,5 +1,5 @@
-# Testcelitechliblab Typescript SDK 1.1.6
-The Typescript SDK for Testcelitechliblab.
+# Celitech Typescript SDK 1.1.6
+The Typescript SDK for Celitech.
 - API version: 1.1.6
 - SDK version: 1.1.6
 ## Table of Contents
@@ -9,7 +9,7 @@ The Typescript SDK for Testcelitechliblab.
 - [API Endpoint Services](#api-endpoint-services)
 - [API Models](#api-models)
 - [Sample Usage](#sample-usage)
-- [Testcelitechliblab Services](#testcelitechliblab-services)
+- [Celitech Services](#celitech-services)
 - [License](#license)
 ## About the API
 Welcome to the CELITECH API documentation!  Useful links: [Homepage](https://www.celitech.com) | [Support email](mailto:support@celitech.com) | [Blog](https://www.celitech.com/blog/)  # Introduction  This guide is your go-to resource for the CELITECH API, with full documentation and schemas.  Need help? Email us at support@celitech.com.   Partners  refers to online service providers that use our eSIM API. Access levels include Gold, Platinum, and Diamond.  ## API  The CELITECH API is designed for use by partner platforms, including both web and mobile applications. It's assumed all endpoint calls are initiated from the backend of an integrated platform.  API URL: `https://api.celitech.net/v1`  ## Authentication & Authorization CELITECH API uses the OAuth 2.0 protocol for authentication and authorization. The endpoints are protected using client credentials flow which is based on a token exchange. The token has a defined life span (typically 1 hour), after which a new token must be obtained.  To begin, obtain OAuth 2.0 client credentials ( **CLIENT_ID** & **CLIENT_SECRET** ) from the [CELITECH Dashboard](https://www.dashboard.celitech.com/). Then your client application requests an access token from the CELITECH Authorization Server, extracts a token from the response, and sends the token to the CELITECH API that you want to access.  Security Scheme Type: `OAuth2`  Flow type: `clientCredentials`  Token URL: `https://auth.celitech.net/oauth2/token` 
@@ -37,10 +37,10 @@ Here is a simple program demonstrating usage of this SDK. It can also be found i
 When running the sample make sure to use `npm install` to install all the dependencies.
 
 ```Typescript
-import { Testcelitechliblab } from 'test-celitech-liblab';
+import { Celitech } from 'test-celitech-liblab';
 
 
-const sdk = new Testcelitechliblab();
+const sdk = new Celitech();
 
 (async () => {
   const result = await sdk.destinations
@@ -50,7 +50,7 @@ const sdk = new Testcelitechliblab();
  
 
 ```
-# Testcelitechliblab Services
+# Celitech Services
 A list of all services and services methods.
 - Services
 
@@ -116,9 +116,9 @@ ListDestinationsResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Testcelitechliblab } from 'test-celitech-liblab';
+import { Celitech } from 'test-celitech-liblab';
 
-const sdk = new Testcelitechliblab();
+const sdk = new Celitech();
 
 (async () => {
   const result = await sdk.destinations.listDestinations();
@@ -156,9 +156,9 @@ ListPackagesResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Testcelitechliblab } from 'test-celitech-liblab';
+import { Celitech } from 'test-celitech-liblab';
 
-const sdk = new Testcelitechliblab();
+const sdk = new Celitech();
 
 (async () => {
   const result = await sdk.packages.listPackages({
@@ -168,9 +168,9 @@ const sdk = new Testcelitechliblab();
     afterCursor:
       'Y3JlYXRlZEF0OjE1OTk0OTMwOTgsZGVzdGluYXRpb246QVVTLG1pbkRheXM6MCxkYXRhTGltaXRJbkJ5dGVzOjUzNjg3MDkxMjA',
     limit: 20,
-    startTime: 56583119,
-    endTime: -69446097,
-    duration: 85453367.428233,
+    startTime: -22582039,
+    endTime: -25973128,
+    duration: 22328391.792687625,
   });
   console.log(result);
 })();
@@ -195,9 +195,9 @@ CreatePurchaseResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Testcelitechliblab } from 'test-celitech-liblab';
+import { Celitech } from 'test-celitech-liblab';
 
-const sdk = new Testcelitechliblab();
+const sdk = new Celitech();
 
 (async () => {
   const input = {
@@ -205,10 +205,10 @@ const sdk = new Testcelitechliblab();
     destination: 'FRA',
     email: 'example@domain.com',
     endDate: '2023-11-20',
-    endTime: -75290233.23363826,
+    endTime: 71756343.25936705,
     networkBrand: 'CELITECH',
     startDate: '2023-11-01',
-    startTime: 12572186.316502959,
+    startTime: 22777005.129686773,
   };
   const result = await sdk.purchases.createPurchase(input);
   console.log(result);
@@ -243,9 +243,9 @@ ListPurchasesResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Testcelitechliblab } from 'test-celitech-liblab';
+import { Celitech } from 'test-celitech-liblab';
 
-const sdk = new Testcelitechliblab();
+const sdk = new Celitech();
 
 (async () => {
   const result = await sdk.purchases.listPurchases({
@@ -255,8 +255,8 @@ const sdk = new Testcelitechliblab();
     afterCursor:
       'Y3JlYXRlZEF0OjE1OTk0OTMwOTgsZGVzdGluYXRpb246QVVTLG1pbkRheXM6MCxkYXRhTGltaXRJbkJ5dGVzOjUzNjg3MDkxMjA',
     limit: 20,
-    after: -7183367.320622429,
-    before: 46872738.0330008,
+    after: -23486336.71856661,
+    before: 31025203.57834643,
   });
   console.log(result);
 })();
@@ -280,19 +280,19 @@ TopUpEsimResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Testcelitechliblab } from 'test-celitech-liblab';
+import { Celitech } from 'test-celitech-liblab';
 
-const sdk = new Testcelitechliblab();
+const sdk = new Celitech();
 
 (async () => {
   const input = {
     dataLimitInGB: 1,
     email: 'example@domain.com',
     endDate: '2023-11-20',
-    endTime: -38967871.601991974,
+    endTime: 23390394.073327318,
     iccid: '1111222233334444555',
     startDate: '2023-11-01',
-    startTime: -54213905.05928598,
+    startTime: -79977161.52295528,
   };
   const result = await sdk.purchases.topUpEsim(input);
   console.log(result);
@@ -317,17 +317,17 @@ EditPurchaseResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Testcelitechliblab } from 'test-celitech-liblab';
+import { Celitech } from 'test-celitech-liblab';
 
-const sdk = new Testcelitechliblab();
+const sdk = new Celitech();
 
 (async () => {
   const input = {
     endDate: '2023-11-20',
-    endTime: -60684713.3678297,
+    endTime: 77013127.71052092,
     purchaseId: 'ae471106-c8b4-42cf-b83a-b061291f2922',
     startDate: '2023-11-01',
-    startTime: -42641802.837185904,
+    startTime: -7670497.0024060905,
   };
   const result = await sdk.purchases.editPurchase(input);
   console.log(result);
@@ -354,9 +354,9 @@ GetPurchaseConsumptionResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Testcelitechliblab } from 'test-celitech-liblab';
+import { Celitech } from 'test-celitech-liblab';
 
-const sdk = new Testcelitechliblab();
+const sdk = new Celitech();
 
 (async () => {
   const result = await sdk.purchases.getPurchaseConsumption('4973fa15-6979-4daa-9cf3-672620df819c');
@@ -385,9 +385,9 @@ GetEsimResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Testcelitechliblab } from 'test-celitech-liblab';
+import { Celitech } from 'test-celitech-liblab';
 
-const sdk = new Testcelitechliblab();
+const sdk = new Celitech();
 
 (async () => {
   const result = await sdk.eSim.getEsim('1111222233334444555');
@@ -415,9 +415,9 @@ GetEsimDeviceResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Testcelitechliblab } from 'test-celitech-liblab';
+import { Celitech } from 'test-celitech-liblab';
 
-const sdk = new Testcelitechliblab();
+const sdk = new Celitech();
 
 (async () => {
   const result = await sdk.eSim.getEsimDevice('1111222233334444555');
@@ -445,9 +445,9 @@ GetEsimHistoryResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Testcelitechliblab } from 'test-celitech-liblab';
+import { Celitech } from 'test-celitech-liblab';
 
-const sdk = new Testcelitechliblab();
+const sdk = new Celitech();
 
 (async () => {
   const result = await sdk.eSim.getEsimHistory('1111222233334444555');
@@ -475,9 +475,9 @@ GetEsimMacResponse
 
 **Example Usage Code Snippet**
 ```Typescript
-import { Testcelitechliblab } from 'test-celitech-liblab';
+import { Celitech } from 'test-celitech-liblab';
 
-const sdk = new Testcelitechliblab();
+const sdk = new Celitech();
 
 (async () => {
   const result = await sdk.eSim.getEsimMac('1111222233334444555');

@@ -1,6 +1,6 @@
 import nock from 'nock';
 
-import { Testcelitechliblab } from '../../../src';
+import { Celitech } from '../../../src';
 
 import { PackagesService } from '../../../src/services/packages/Packages';
 
@@ -14,7 +14,7 @@ describe('test Packages', () => {
   let sdk: any;
 
   beforeEach(() => {
-    sdk = new Testcelitechliblab();
+    sdk = new Celitech();
 
     nock.cleanAll();
   });
@@ -23,18 +23,18 @@ describe('test Packages', () => {
     test('test api call', () => {
       const scope = nock('https://tshnuiufz7.execute-api.us-east-1.amazonaws.com/test')
         .get(
-          '/packages?destination=quasi&startDate=unde&endDate=perspiciatis&afterCursor=repellendus&limit=4&startTime=4&endTime=4&duration=1',
+          '/packages?destination=perspiciatis&startDate=sapiente&endDate=velit&afterCursor=aliquam&limit=2&startTime=1&endTime=8&duration=1',
         )
         .reply(200, { data: {} });
       return sdk.packages
         .listPackages({
-          destination: 'quasi',
-          startDate: 'unde',
-          endDate: 'perspiciatis',
-          afterCursor: 'repellendus',
-          limit: 4,
-          startTime: 4,
-          endTime: 4,
+          destination: 'perspiciatis',
+          startDate: 'sapiente',
+          endDate: 'velit',
+          afterCursor: 'aliquam',
+          limit: 2,
+          startTime: 1,
+          endTime: 8,
           duration: 1,
         })
         .then((r: any) => expect(r.data).toEqual({}));
